@@ -1,0 +1,76 @@
+{
+  "albums": [
+    {
+      "id": 1,
+      "title": "Back in Black",
+      "band": "AC/DC",
+      "year": 1980
+    },
+    {
+      "id": 2,
+      "title": "Paranoid",
+      "band": "Black Sabbath",
+      "year": 1970
+    },
+    {
+      "id": 3,
+      "title": "Led Zeppelin IV",
+      "band": "Led Zeppelin",
+      "year": 1971
+    },
+    {
+      "id": 5,
+      "title": "Appetite for Destruction",
+      "band": "Guns N' Roses",
+      "year": 1987
+    },
+    {
+      "id": 6,
+      "title": "Ace of Spades",
+      "band": "Motörhead",
+      "year": 1980
+    },
+    {
+      "id": 7,
+      "title": "British Steel",
+      "band": "Judas Priest",
+      "year": 1980
+    },
+    {
+      "id": 8,
+      "title": "Heaven and Hell",
+      "band": "Black Sabbath",
+      "year": 1980
+    },
+    {
+      "id": 9,
+      "title": "Van Halen",
+      "band": "Van Halen",
+      "year": 1978
+    },
+    {
+      "id": 10,
+      "title": "Holy Diver",
+      "band": "Dio",
+      "year": 1983
+    },
+    {
+      "id": 12,
+      "title": "Metallica",
+      "band": "Metallica",
+      "year": 1991
+    },
+    {
+      "id": 13,
+      "title": "Watershed",
+      "band": "Opeth",
+      "year": 2008
+    },
+    {
+      "id": 14,
+      "title": "f",
+      "band": "g",
+      "year": "4"
+    }
+  ]
+}
