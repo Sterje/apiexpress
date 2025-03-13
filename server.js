@@ -61,7 +61,7 @@ app.get("/api/albums/:id", (req, res) => {
       // Returnerar 404-fel om albumet inte hittas.
       return res.status(404).json({ message: "Album not found" });
     }
-    res.json(album); // Returnerar det hittade albumet som JSON.
+    res.json(album); // Returnerar det hittade albumet som JSON.git
   });
 });
 
