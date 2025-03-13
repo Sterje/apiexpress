@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Express</title>
+</head>
+<body>
+
+        <h2>Base URL:</h2>
+
+http://localhost:5000/api/albums
+<h2>Endpoints</h2>
+<h3>1. Hämta alla album</h3>
+Metod: GET<br>
+URL: /api/albums<br>
+Beskrivning: Returnerar en lista över alla album i databasen.<br>
+Svar: 200 OK: En lista med alla album.<br>
+json<br>
+[<br>
+{<br>
+    "id": 1, <br>
+    "title": "Back in Black",<br>
+    "band": "AC/DC",<br>
+    "year": 1980<br>
+},<br>
+  {<br>
+    "id": 2,<br>
+    "title": "Paranoid",<br>
+    "band": "Black Sabbath",<br>
+    "year": 1970<br>
+  }<br>
+]<br><br>
+
+
+
+<h3>2. Hämta ett album baserat på ID</h3><br>
+Metod: GET<br>
+URL: /api/albums?id=<ID><br>
+Beskrivning: Hittar ett specifikt album baserat på ett angivet ID.<br>
+Query-parametrar:<br>
+id (obligatorisk): ID:t för albumet som ska hämtas.<br><br>
+Svar:<br>
+200 OK: Det matchande albumet.<br>
+json<br>
+{<br>
+  "id": 1,<br>
+  "title": "Back in Black",<br>
+  "band": "AC/DC",<br>
+  "year": 1980<br>
+}<br>
+404 Not Found: Om albumet med det angivna ID:t inte finns.<br>
+500 Internal Server Error: Om något gick fel vid läsning av databasen.<br><br>
+<h3>3. Hämta album baserat på år</h3>
+Metod: GET<br>
+URL: /api/albums?year=<YEAR><br>
+Beskrivning: Returnerar en lista över album som matchar det angivna året.<br>
+Query-parametrar:<br>
+year (valfritt): Året för albumen som ska hämtas.<br><br>
+Svar:<br>
+200 OK: En lista med album som matchar det angivna året.<br>
+json<br>
+[<br>
+  {<br>
+    "id": 1,<br>
+    "title": "Back in Black",<br>
+    "band": "AC/DC",<br>
+    "year": 1980<br>
+  },<br>
+  {<br>
+    "id": 3,<br>
+    "title": "British Steel",<br>
+    "band": "Judas Priest",<br>
+    "year": 1980<br>
+  }<br>
+]<br><br>
+
+404 Not Found: Om inga album hittades för det angivna året.<br>
+500 Internal Server Error: Om något gick fel vid läsning av databasen.<br><br>
+<h3>
+
+4. Lägg till ett nytt album</h3>
+Metod: POST<br>
+URL: /api/albums<br>
+Beskrivning: Lägger till ett nytt album i databasen.<br>
+Begäranskropp (request body):<br>
+JSON-format med följande egenskaper:<br>
+json<br>
+{<br>
+  "title": "New Album",<br>
+  "band": "New Band",<br>
+  "year": 2025<br>
+}<br><br>
+
+Svar: <br>
+201 Created: Det nyligen skapade albumet.<br>
+json<br>
+{<br>
+  "id": 5,<br>
+  "title": "New Album",<br>
+  "band": "New Band",<br>
+  "year": 2025<br>
+}<br>
+{<br>
+  "id": 5,<br>
+  "title": "New Album",<br>
+  "band": "New Band",<br>
+  "year": 2025<br>
+}<br><br>
+Felmeddelanden:<br>
+500 Internal Server Error: Om något gick fel vid skrivning till databasen.<br>
+<h3>5. Ta bort ett album</h3>
+Metod: DELETE<br>
+URL: /api/albums?id=<ID><br>
+Beskrivning: Tar bort ett album baserat på det angivna ID:t.<br>
+Query-parametrar:<br>
+id (obligatorisk): ID:t för albumet som ska tas bort.<br><br>
+Svar:<br>
+200 OK: Bekräftelse på att albumet togs bort.<br>
+json<br>
+{<br>
+  "message": "Album deleted successfully"<br>
+}<br>
+{<br>
+  "message": "Album deleted successfully"<br>
+}<br><br>
+
+Felmeddelanden:<br>
+404 Not Found: Om albumet med det angivna ID:t inte finns.<br>
+500 Internal Server Error: Om något gick fel vid skrivning eller läsning av databasen.<br><br>
+
+Felmeddelanden:<br>
+Om något går snett i servern (t.ex., ett problem med att läsa eller skriva databasen), returneras ett JSON-felmeddelande:<br>
+json<br>
+{<br>
+  "message": "Error reading database"<br>
+}<br><br>
+Anmärkningar<br>
+Alla dataoperationer baseras på db.json, en lokal fil som innehåller albumdata.<br>
+ID är unika för varje album och används för att identifiera dem vid borttagning eller hämtning.<br>
+
+
+
+
+    
+</body>
+</html>

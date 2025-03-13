@@ -121,6 +121,11 @@ app.delete("/api/albums", (req, res) => {
   
 });
 
+//GET-endpoint för att serva index.html vid rot-endpoint "/"
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // Starta servern.
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`); // Loggar att servern körs och lyssnar på angiven port.
