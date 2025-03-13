@@ -146,30 +146,4 @@ document.getElementById("find-album-form").addEventListener("submit", async (eve
   }
 });
 
-// Find album by year
-document.getElementById("find-album-form-year").addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  const albumYear = document.getElementById("album-year").value;
-
-  try {
-    const response = await fetch(`${apiUrl}?year=${albumYear}`); // Lägg till ID som query-parameter
-    if (response.ok) {
-      const albums = await response.json(); // Flera album returneras
-const albumDetailsDiv = document.getElementById("album-details-year");
-albumDetailsDiv.innerHTML = ""; // Rensa tidigare innehåll
-
-albums.forEach(album => {
-  const p = document.createElement("p");
-  p.textContent = `${album.id}: ${album.title} by ${album.band} (${album.year})`;
-  albumDetailsDiv.appendChild(p);
-});
-
-    } else {
-      document.getElementById("album-details").textContent = "Album not found.";
-    }
-  } catch (error) {
-    console.error("Error finding album:", error);
-  }
-});
 

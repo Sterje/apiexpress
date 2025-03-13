@@ -65,32 +65,6 @@ app.get("/api/albums/:id", (req, res) => {
   });
 });
 
-app.get("/api/albums", (req, res) => {
-  const { year } = req.query; // Hämta "year" från query-parametern
-
-  fs.readFile(dbFilePath, "utf8", (err, data) => {
-    if (err) {
-      return res.status(500).json({ message: "Error reading database" });
-    }
-
-    const albums = JSON.parse(data).albums; // Läs albumlistan från databasen
-
-    // Om en "year" query-parameter skickas
-    if (year) {
-      const filteredAlbums = albums.filter(album => album.year === parseInt(year)); // Filtrera efter år
-      if (filteredAlbums.length === 0) {
-        return res.status(404).json({ message: "No albums found for this year." });
-      }
-      return res.json(filteredAlbums); // Returnera endast de matchande albumen
-    }
-
-    // Om ingen "year" skickas, returnera hela listan
-    res.json(albums);
-  });
-  console.log("Query year:", year);
-console.log("Filtered albums:", filteredAlbums);
-});
-
 // Endpoint: Lägg till ett nytt album.
 app.post("/api/albums", (req, res) => {
   fs.readFile(dbFilePath, "utf8", (err, data) => {
